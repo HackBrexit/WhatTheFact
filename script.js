@@ -12,6 +12,11 @@ chrome.extension.onRequest.addListener(handleRequest);
 
 /*Small function wich create a sidebar(just to illustrate my point)*/
 var sidebarOpen = false;
+            //document.getElementById("content").innerHTML='<object type="type/html" data="home.html" ></object>';
+
+function getData(url) {
+	return ['fact check 1', 'fact check 2'];
+}
 function toggleSidebar() {
 	if(sidebarOpen) {
 		var el = document.getElementById('mySidebar');
@@ -21,10 +26,13 @@ function toggleSidebar() {
 	else {
 		var sidebar = document.createElement('div');
 		sidebar.id = "mySidebar";
-		sidebar.innerHTML = "\
-			<h1>Hello</h1>\
-			World!\
-		";
+		var data = getData();
+		data.forEach(function (text) {
+			var t = document.createTextNode(text); 
+			sidebar.appendChild(t);
+		});
+		var newContent = document.createTextNode('Fact check 1');
+
 		sidebar.style.cssText = "\
 			position:fixed;\
 			top:0px;\
@@ -36,6 +44,7 @@ function toggleSidebar() {
 			z-index:999999;\
 		";
 		document.body.appendChild(sidebar);
+		
 		sidebarOpen = true;
 	}
 }
