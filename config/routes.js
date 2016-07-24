@@ -1,7 +1,11 @@
-var express            = require('express');
-var router             = express.Router();
+var express                     = require('express');
+var router                      = express.Router();
+var factsController             = require("../controllers/factsController");
 
 
-var factsController    = require("../controllers/factController");
+//******* Routes ***********//
 
-router.route('/fact/:url').get(factsController.index);
+router.route('/fact').get(factsController.getFact);
+
+
+module.exports = router;

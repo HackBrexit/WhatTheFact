@@ -1,30 +1,28 @@
-var Fact = require("../models/fact");
-var rp = require("request-promise");
+var Fact    = require("../models/fact");
+var rp      = require("request-promise");
 var cheerio = require("cheerio");
+var url = "https://www.theguardian.com/world/2016/jul/24/brexit-deal-free-movement-exemption-seven-years";
 
+function getFact(req, res) {
+  return rp(url)
+    .then(function(body) {
+      var $ = cheerio.load(body);
+      var articles = [];
+      $("div.content__article-body").each(function() {
+        articles.push($(this).text());
+        console.log(articles);
+      });
+      Fact.find(function(err, fact){
+        if (err) return res.status(404).json({ message: 'Something went wrong.' });
+        res.status(200).json(fact);
+      });
+    })
+    .catch(function(err) {
+      return res.status(500).send(err);
+    });
 
-function factFind(req, res) {
-    var url = "http://www.theguardian.com/politics/reality-check/2016/may/23/does-the-eu-really-cost-the-uk-350m-a-week";
-    return rp(url)
-        .then(function(body) {
-            var $ = cheerio.load(body);
-            var article = [];
-            $("article").each(function() {
-                article.push($(this).text());
-                console.log(article);
-            });
-            Fact.findBy(article).exec(function(err, user) {
-                if (err) return res.status(404).json({
-                    message: 'Something went wrong.'
-                });
-                res.status(200).json(user);
-            });
-        })
-        .catch(function(err) {
-            console.log("something went wrong...");
-        });
-}
+  }
 
-module.exports = {
-    find: factFind
-};
+  module.exports = {
+      getFact:   getFact
+  };

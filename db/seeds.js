@@ -15,9 +15,9 @@ mongoose.connect(config.database, function(){
 // Drop collections
 Fact.collection.drop();
 
-factsData.forEach(function(category){
+factsData.forEach(function(fact){
   Fact
-  .create(category)
+  .create(fact)
   .then(function(fact){
     console.log("[Fact] " + fact.name + " was created");
   });
