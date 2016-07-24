@@ -15,7 +15,7 @@ var sidebarOpen = false;
             //document.getElementById("content").innerHTML='<object type="type/html" data="home.html" ></object>';
 
 function getData(url) {
-	return [{'link': 'https://twitter.com/', 'content': 'This fact takes you to Twitter! '}, 
+	return [{'link': 'https://twitter.com/', 'content': 'This fact takes you to Twitter! '},
 	{'link': 'https://twitter.com/', 'content': 'This fact also takes you to Twitter! :) '}];
 }
 function toggleSidebar() {
@@ -46,26 +46,26 @@ function toggleSidebar() {
 			d.appendChild(link);
 
 			d.style.cssText = "\
-				margin: 10px;\
-				background-color: rgba(65, 49, 117, 0.8);\
-				border: 1px solid #DCD7E9;\
-				color: #DCD7E9;\
-				border-radius: 3px;\
+				margin: 30px 15px;\
+				color: black;\
 				padding: 10px;\
-				font-size: 16;\
+				border-left: 4px #0077ff solid;\
 			";
 			sidebar.appendChild(d);
 		});
 
 		sidebar.style.cssText = "\
-			position:fixed;\
-			top:0px;\
-			left:0px;\
-			width:30%;\
-			height:100%;\
-			background:rgba(19, 7, 58, 0.5);\
-			box-shadow:inset 0 0 1em black;\
-			z-index:999999;\
+			position: fixed;\
+			top: 0px;\
+			left: 0px;\
+			width: 30%;\
+			height: 100%;\
+			margin: 10px;\
+			z-index: 999999;\
+			background: white;\
+			border-radius: 10px;\
+			padding: 10px;\
+			box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.5);\
 		";
 		document.body.appendChild(sidebar);
 
@@ -81,12 +81,13 @@ function openPrompter() {
 		position:fixed;\
 		top:0;\
 		right:0;\
-		padding:10px;\
+		padding:15px;\
 		background:white;\
 		border-radius:10px;\
 		margin: 10px;\
 		z-index: 1000000;\
 		cursor: pointer;\
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.5);\
 	";
     var numClaims = getData().length;
     var t = document.createTextNode('There are ' + numClaims + ' claims worth fact-checking on this page! Click to view');
