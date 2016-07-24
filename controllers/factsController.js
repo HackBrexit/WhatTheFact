@@ -11,17 +11,17 @@ function getFact(req, res) {
       $("div.content__article-body").each(function() {
         articles.push($(this).text());
         console.log(articles);
-      });
-      Fact.find(function(err, fact){
-        if (err) return res.status(404).json({ message: 'Something went wrong.' });
-        res.status(200).json(fact);
-      });
-    })
+        Fact.find(articles).exec(function(err, fact){
+          if (err) return res.status(404).json({ message: 'Something went wrong.' });
+            res.status(200).json(fact);
+          });
+      })
     .catch(function(err) {
       return res.status(500).send(err);
     });
 
-  }
+  });
+}
 
   module.exports = {
       getFact:   getFact

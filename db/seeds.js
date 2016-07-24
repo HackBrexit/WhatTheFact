@@ -1,11 +1,11 @@
 var mongoose       = require("mongoose");
-var config         = require("../../config/config");
+var config         = require("../config/config");
 
 // Models
-var Fact       = require("../../models/fact");
+var Fact       = require("../models/fact");
 
 // Data
-var factsData   = require("../data/facts.json");
+var factsData   = require("../db/facts.json");
 
 // Connect to database
 mongoose.connect(config.database, function(){
@@ -19,6 +19,6 @@ factsData.forEach(function(fact){
   Fact
   .create(fact)
   .then(function(fact){
-    console.log("[Fact] " + fact.name + " was created");
+    console.log("[Fact] " + fact + " was created");
   });
 });
