@@ -1,7 +1,7 @@
 /*Handle requests from background.html*/
 function handleRequest(
 		//The object data with the request params
-		request, 
+		request,
 		//These last two ones isn't important for this example, if you want know more about it visit: http://code.google.com/chrome/extensions/messaging.html
 		sender, sendResponse
 	) {
@@ -29,18 +29,16 @@ function toggleSidebar() {
 		var data = getData();
 		data.forEach(function (text) {
 			var d = document.createElement('div');
-			var t = document.createTextNode(text); 
+			var t = document.createTextNode(text);
 
-			/*d.style.cssText = "\
+
+			d.appendChild(t);
+			d.style.cssText = "\
 				margin: 10px;\
 				background-color: #AAFFFF;\
-			";
-
-			t.style.cssText = "\
 				padding: 10px;\
 				font-size: 16;\
-			";*/
-			d.appendChild(t);
+			";
 			sidebar.appendChild(d);
 		});
 
@@ -55,7 +53,7 @@ function toggleSidebar() {
 			z-index:999999;\
 		";
 		document.body.appendChild(sidebar);
-		
+
 		sidebarOpen = true;
 	}
 }
