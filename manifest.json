@@ -15,7 +15,7 @@
     {
       "matches": ["<all_urls>"],
       // Could put in https://www.theguardian.com/uk/* to only have guardian website, etc.
-      "js": ["script.js", "jquery-3.1.0.min.js"]
+      "js": ["jquery-3.1.0.min.js", "script.js"]
     }
   ],
   "permissions": [

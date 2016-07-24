@@ -16,7 +16,18 @@ var sidebarOpen = false;
             //document.getElementById("content").innerHTML='<object type="type/html" data="home.html" ></object>';
 
 function getData(url) {
-    var url = window.location.toString();
+    var tab_url = window.location.toString();
+
+		$.ajax({
+			 type: "GET",
+			 url: "http://localhost:3000/api/fact"+ tab_url
+		 }).done(function(data){
+			 var data = data;
+			 console.log(data);
+		 }).fail(function(response){
+			 console.log("There's an error");
+
+		 });
 
     return [
   {
@@ -96,7 +107,7 @@ function toggleSidebar() {
 		sidebar.style.cssText = "\
 			position: fixed;\
 			top: 0px;\
-			left: 0px;\
+			right: 0px;\
 			width: 30%;\
 			height: 100%;\
 			margin: 20px;\
@@ -111,19 +122,7 @@ function toggleSidebar() {
 		sidebarOpen = true;
 	}
 }
-/* get the URL from the current tab in chrome */
- 
-var tab_url = "";
- $.ajax({
-    type: "GET",
-    url: "http://localhost:3000/api/fact"+ tab_url,
-    data: data,
-  }).done(function(data){ 
-  	var data = data;
-  }).fail(function(response){
-  	console.log("There's an error");
-  
-  });
+
 
 function openPrompter() {
 	var prompter = document.createElement('div');
@@ -131,7 +130,7 @@ function openPrompter() {
 	prompter.style.cssText = "\
 		position:fixed;\
 		top:0;\
-		right:0;\
+		left:0;\
 		padding:15px;\
 		background:white;\
 		border-radius:10px;\
@@ -149,20 +148,29 @@ function openPrompter() {
 }
 
 
-function highlightPar(parClass) {
-	var myPar = document.getElementsByClassName(parClass)[0];
-	console.log(myPar);
+function highlightPar(myPar) {
+	myPar.style.cssText = "\
+		border-left: 4px #0077ff solid !important;\
+		padding-left: 10px;\
+		cursor: pointer;\
+	";
+	myPar.className += " myPar";
+	myPar.onclick = function () {
+    toggleSidebar();
+	};
 }
 
 
 
 openPrompter();
-highlightPar('article__content--intro');
+var myPar1 = document.getElementsByClassName('article__content--intro')[0];
+highlightPar(myPar1);
+highlightPar(document.getElementsByTagName('p')[6]);
 
 
 var head = document.getElementsByTagName('head')[0];
 var style = document.createElement('style');
-var declarations = document.createTextNode('#myPrompter:hover { background: #eeeeff !important; } .myFact:hover { background: #eeeeff !important; text-decoration: underline;}');
+var declarations = document.createTextNode('#myPrompter:hover { background: #eeeeff !important; } .myFact:hover { background: #eeeeff !important; text-decoration: underline;}  .myPar:hover { background: #eeeeff !important;}');
 
 style.type = 'text/css';
 
