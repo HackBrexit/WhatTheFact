@@ -28,10 +28,21 @@ function toggleSidebar() {
 		sidebar.id = "mySidebar";
 		var data = getData();
 		data.forEach(function (text) {
+			var d = document.createElement('div');
 			var t = document.createTextNode(text); 
-			sidebar.appendChild(t);
+
+			/*d.style.cssText = "\
+				margin: 10px;\
+				background-color: #AAFFFF;\
+			";
+
+			t.style.cssText = "\
+				padding: 10px;\
+				font-size: 16;\
+			";*/
+			d.appendChild(t);
+			sidebar.appendChild(d);
 		});
-		var newContent = document.createTextNode('Fact check 1');
 
 		sidebar.style.cssText = "\
 			position:fixed;\
