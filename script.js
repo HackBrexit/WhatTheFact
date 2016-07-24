@@ -72,7 +72,19 @@ function toggleSidebar() {
 		sidebarOpen = true;
 	}
 }
-
+/* get the URL from the current tab in chrome */
+ 
+var tab_url = "";
+ $.ajax({
+    type: "GET",
+    url: "http://localhost:3000/api/fact"+ tab_url,
+    data: data,
+  }).done(function(data){ 
+  	var data = data;
+  }).fail(function(response){
+  	console.log("There's an error");
+  
+  });
 
 function openPrompter() {
 	var prompter = document.createElement('div');
