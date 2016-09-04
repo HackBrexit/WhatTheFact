@@ -8,3 +8,5 @@ PROBLEM
 
 SOLUTION
  WhatTheFact provides a Chrome extension to show pop up facts and links when the user is reading an article from the mainstream news. 
+
+[![YouTube video](http://img.youtube.com/vi/MrPCj9Qv3nE/0.jpg)](http://www.youtube.com/watch?v=MrPCj9Qv3nE "What the Fact project introduction")
