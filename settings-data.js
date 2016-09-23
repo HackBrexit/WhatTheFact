@@ -1,0 +1,1 @@
+window.EXTENSION_CONFIG = {"buildType":"production","apiUrl":"https://hypothes.is/api/","serviceUrl":"https://hypothes.is/","raven":{"dsn":"https://934d4f62912b47d8bb03c28ae6670cf8@app.getsentry.com/69811","release":"0.44.0.0"}};
