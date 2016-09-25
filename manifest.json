@@ -1,14 +1,13 @@
 {
 "update_url": "https://clients2.google.com/service/update2/crx",
 
-  "name": "Hypothesis - Web & PDF Annotation",
-  "short_name": "Hypothesis",
-  "version": "0.44.0.0",
-  "version_name": "0.44.0.0 (Official Build)",
+  "name": "WhatTheFact - A HackBrexit app",
+  "short_name": "WhatTheFact",
+  "version": "0.7.0.0",
+  "version_name": "0.7.0.0",
   "manifest_version": 2,
 
   "minimum_chrome_version": "38",
-
 
   "description": "Collaboratively annotate, highlight, and tag web pages and PDF documents.",
   "icons": {
