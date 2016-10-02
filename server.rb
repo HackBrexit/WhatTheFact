@@ -15,7 +15,7 @@ class QuestionableFact
   field :fact_id, type: String
 
   validates :title, presence: true
-  validates :author, presence: true
+  validates :paragraph, presence: true
   validates :fact_id, presence: true
 
   scope :title, -> (title) { where(title: /^#{title}/) }
@@ -42,6 +42,27 @@ namespace '/api/v1' do
     [:title, :paragraph, :fact_id].each do |filter|
       facts = facts.send(filter, params[filter]) if params[filter]
     end
-    facts.to_json
+    
+    facts.map { |fact| FactSerializer.new(fact) }.to_json
   end
+end
+
+#Serializers
+
+class FactSerializer
+
+  def initialize(fact)
+    @fact = fact
+  end
+
+  def as_json(*)
+    data = {
+      fact_id: @fact.fact_id.to_s,
+      title: @fact.title,
+      paragraph: @fact.paragraph
+    }
+    data[:errors] = @fact.errors if @fact.errors.any?
+    data
+  end
+
 end
