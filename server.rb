@@ -18,6 +18,10 @@ class QuestionableFact
   validates :author, presence: true
   validates :fact_id, presence: true
 
+  scope :title, -> (title) { where(title: /^#{title}/) }
+  scope :paragraph, -> (paragraph) { where(paragraph: paragraph) }
+  scope :fact_id, -> (isbn) { where(fact_id: fact_id) }
+
   index({ title: 'text' })
   index({ fact_id: 1 }, { unique: true, name: "fact_index" })
 end
@@ -33,6 +37,11 @@ namespace '/api/v1' do
   end
 
   get '/facts' do
-    QuestionableFact.all.to_json
+    facts = QuestionableFact.all
+
+    [:title, :paragraph, :fact_id].each do |filter|
+      facts = facts.send(filter, params[filter]) if params[filter]
+    end
+    facts.to_json
   end
 end
