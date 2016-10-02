@@ -42,8 +42,14 @@ namespace '/api/v1' do
     [:title, :paragraph, :fact_id].each do |filter|
       facts = facts.send(filter, params[filter]) if params[filter]
     end
-    
+
     facts.map { |fact| FactSerializer.new(fact) }.to_json
+  end
+
+  get '/facts/:id' do |id|
+    fact = QuestionableFact.where(fact_id: id).first
+    halt(404, { message: 'Fact Not Found'}.to_json) unless fact
+    FactSerializer.new(fact).to_json
   end
 end
 
