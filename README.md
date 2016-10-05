@@ -3,7 +3,9 @@
 ## Quick Start
 
 1. `bundle exec install`
-2. `bundle exec ruby server`
+2. `mongod` to start the mongo server
+3. `bundle exec ruby server`
+
 
 # API endpoints
 
