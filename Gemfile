@@ -1,4 +1,3 @@
-# Gemfile
 source 'https://rubygems.org'
 ruby '2.3.1'
 
@@ -10,4 +9,3 @@ group :development do
   gem 'pry'
 end
 # Required to use some advanced features of  Sinatra, like namespaces
-
