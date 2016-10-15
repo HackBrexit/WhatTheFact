@@ -1,12 +1,47 @@
-# WhatTheFact
+# What the Fact  API
 
-AUDIENCE  
-People seeking reliable information on post-Brexit issues 
+## Quick Start
 
-PROBLEM
- With the rise of misinformation surrounding the Brexit debate, people want to find reliable information on post-Brexit issues relevant to them (e.g. how their job situation is affected). But which news articles can they trust when so many journalists are saying very different things, and so many facts out there are dubious?
+1. `bundle exec install`
+2. `mongod` to start the mongo server
+3. `bundle exec ruby server`
 
-SOLUTION
- WhatTheFact provides a Chrome extension to show pop up facts and links when the user is reading an article from the mainstream news. 
 
-[![YouTube video](http://img.youtube.com/vi/MrPCj9Qv3nE/0.jpg)](http://www.youtube.com/watch?v=MrPCj9Qv3nE "What the Fact project introduction")
+# API endpoints
+
+### Get facts list
+
+#### Request 
+
+[GET] `/api/v1/facts`
+
+#### Response
+
+```
+[
+  {
+    "fact_id": "1",
+    "title": "example 1",
+    "paragraph": "minister under the influence is a hackbrixit project"
+  },
+  {
+    "fact_id": "2",
+    "title": "Minister under the influence",
+    "paragraph": "Minister under the influence is a hack brixit app"
+  }
+]
+```
+
+### Post Fact
+
+In the command line
+`curl -i -X POST -H "Content-Type: application/json" -d '{"title":"Minister under the influence", "paragraph":"Minister under the influence is a hack brixit app", "fact_id":"0123456789"}' http://localhost:4567/api/v1/facts`
+
+#### Response
+
+```
+HTTP/1.1 201 Created
+Content-Type: application/json
+Location: http://localhost:4567/api/v1/books/5710b7b6fef9afa7a8e5db81
+...
+```
