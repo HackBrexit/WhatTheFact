@@ -1,19 +1,19 @@
-
 class QuestionableFact
   include Mongoid::Document
 
-  field :title, type: String
-  field :paragraph, type: String
   field :fact_id, type: String
+  field :questionable_fact, type: String
+  field :user_question, type: String
+  field :questionable_fact_url, type: String
+  field :user_email, type: String
 
-  validates :title, presence: true
-  validates :paragraph, presence: true
-  validates :fact_id, presence: true
+  validates :questionable_fact, presence: true
+  validates :user_question, presence: true
+  validates :questionable_fact_url, presence: true
+  validates :user_email, presence: true
 
-  scope :title, -> (title) { where(title: /^#{title}/) }
-  scope :paragraph, -> (paragraph) { where(paragraph: paragraph) }
+  scope :questionable_fact, -> (questionable_fact) { where(questionable_fact: questionable_fact) }
   scope :fact_id, -> (isbn) { where(fact_id: fact_id) }
 
-  index({ title: 'text' })
   index({ fact_id: 1 }, { unique: true, name: "fact_index" })
 end
