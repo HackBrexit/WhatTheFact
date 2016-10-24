@@ -2,10 +2,15 @@
 
 ## Quick Start
 
-1. `bundle exec install`
-2. `mongod` to start the mongo server
-3. `bundle exec ruby server`
+Make sure you have [vagrant](https://www.vagrantup.com/) and [VirtualBox](https://www.virtualbox.org/) (or other supported provider) installed
+If you experience any problems try updating them first.
 
+1. `vagrant up`
+2. `vagrant ssh`
+3. `cd /vagrant`
+4. `bundle install`
+5. `bundler exec ruby server.rb -o 0.0.0.0`
+6. Go to http://127.0.0.1:4567/ you should see `Welcome to What the fact!`
 
 # API endpoints
 
