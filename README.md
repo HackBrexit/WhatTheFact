@@ -40,7 +40,9 @@ If you experience any problems try updating them first.
 ### Post Fact
 
 In the command line
-`curl -i -X POST -H "Content-Type: application/json" -d '{"title":"Minister under the influence", "paragraph":"Minister under the influence is a hack brixit app", "fact_id":"0123456789"}' http://localhost:4567/api/v1/facts`
+`curl -i -X POST -H "Content-Type: application/json" \
+-d '{"user_question":"Minister under the influence", "questionable_fact":"Minister under the influence is a hack brexit app", "questionable_fact_url": "http://hackbrexit.org/", "user_email": "your.email@hackbrexit.org"}' \
+ http://localhost:4567/api/v1/facts`
 
 #### Response
 
