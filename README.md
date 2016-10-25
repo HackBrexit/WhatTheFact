@@ -2,10 +2,15 @@
 
 ## Quick Start
 
-1. `bundle exec install`
-2. `mongod` to start the mongo server
-3. `bundle exec ruby server`
+Make sure you have [vagrant](https://www.vagrantup.com/) and [VirtualBox](https://www.virtualbox.org/) (or other supported provider) installed
+If you experience any problems try updating them first.
 
+1. `vagrant up`
+2. `vagrant ssh`
+3. `cd /vagrant`
+4. `bundle install`
+5. `bundler exec ruby server.rb -o 0.0.0.0`
+6. Go to http://127.0.0.1:4567/ you should see `Welcome to What the fact!`
 
 # API endpoints
 
@@ -35,7 +40,9 @@
 ### Post Fact
 
 In the command line
-`curl -i -X POST -H "Content-Type: application/json" -d '{"title":"Minister under the influence", "paragraph":"Minister under the influence is a hack brixit app", "fact_id":"0123456789"}' http://localhost:4567/api/v1/facts`
+`curl -i -X POST -H "Content-Type: application/json" \
+-d '{"user_question":"Minister under the influence", "questionable_fact":"Minister under the influence is a hack brexit app", "questionable_fact_url": "http://hackbrexit.org/", "user_email": "your.email@hackbrexit.org"}' \
+ http://localhost:4567/api/v1/facts`
 
 #### Response
 
