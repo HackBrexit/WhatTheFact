@@ -6,7 +6,7 @@
 2. `mongod` -  Start the mongo server.
 
   *If this is your first time with MongoDB, you may find one of these helpful: [MongoDB Installation Guides](https://docs.mongodb.com/v3.0/installation/)*
-3. `bundle exec ruby server`
+3. `bundle exec ruby server.rb`
 
 
 # API endpoints
