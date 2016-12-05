@@ -4,7 +4,7 @@
 
 1. `bundle install`
 2. `mongod` to start the mongo server
-3. `bundle exec ruby server`
+3. `ruby server.rb`
 
 
 # API endpoints
