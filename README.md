@@ -2,7 +2,7 @@
 
 ## Quick Start
 
-1. `bundle exec install`
+1. `bundle install`
 2. `mongod` to start the mongo server
 3. `bundle exec ruby server`
 
