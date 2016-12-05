@@ -5,7 +5,7 @@
 1. `bundle install` - Install the required dependencies.
 2. `mongod` -  Start the mongo server.
 
-  nb: Use one of the following guides for assistance installing MongoDB [MongoDB Installation Guides](https://docs.mongodb.com/v3.0/installation/)
+  *If this is your first time with MongoDB, you may find one of these helpful: [MongoDB Installation Guides](https://docs.mongodb.com/v3.0/installation/)*
 3. `bundle exec ruby server`
 
 
