@@ -1,5 +1,7 @@
 # What the Fact  API
 
+**Note:** If you would like to download the chrome extension, please [click here](https://chrome.google.com/webstore/detail/fact-checker/cokfgekpmhapkgfieefhfjicphlollje?hl=en). Also refer to [this wiki](https://github.com/HackBrexit/WhatTheFact/wiki/ChromExt-Installation).
+
 ## Quick Start
 
 1. `bundle install`
